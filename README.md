@@ -4,9 +4,9 @@
 
 ###To-Do
 - [x]- Install angular and mongo, express, body-parser, bootstrap
-- []- set up file paths
+- [x]- set up file paths
 - [x]- set up server and connect
-- []- create controller and service
+- [x]- create controller and service
 - []- set up dom display (input for name, message, and submit button)
 - []- connect display with DB
 - []- display DB on Dom
