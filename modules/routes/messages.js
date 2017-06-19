@@ -24,4 +24,20 @@ router.get('/', function(req, res) {
   }); // end find
 }); // end /listings get
 
+router.post('/messages', function(req, res) {
+  console.log('req.body.name: ' + req.body.username);
+  // retrieved the req.body
+  // putting it into an object to be saved in the db
+  var messageToAdd = {
+    username: req.body.username,
+    location: req.body.location
+  };
+  // create new record
+
+  var newMessage = messages(messageToAdd);
+  newMessage.save(function(err) {
+    res.status(200).json(messageToAdd);
+  });
+});
+
 module.exports = router;

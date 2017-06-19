@@ -3,9 +3,11 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var index = require('./modules/routes/index');
+var messages = require('./modules/routes/messages');
 
 //uses
 app.use('/', index);
+app.use('/messages', messages);
 app.use(bodyParser.json());
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({
@@ -20,7 +22,7 @@ app.listen(port, function() {
   console.log('server up on:', port);
 });
 
-//home base route
+//get
 app.get('/', function(req, res) {
   res.sendFile(path.resolve('public/views/index.html'));
 });
