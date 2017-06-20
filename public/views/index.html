@@ -12,15 +12,15 @@
 </head>
 
 <body>
-  <div ng-controller="messagesController as mc" ng-init="mc.getMessages()" ng-app="myApp">
+  <div ng-controller="messagesController as mc" ng-init="mc.goGetMyMessages()" ng-app="myApp">
     <!-- submission fields -->
     <div class=" input-group input-group-sm ">
       <span class="input-group-addon " id="sizing-addon1 ">@</span>
-      <input type="text " class="form-control " placeholder="Username " aria-describedby="sizing-addon1 " ng-model="mc.usernameIn ">
+      <input type="text " class="form-control " placeholder="Username " aria-describedby="sizing-addon1 " ng-model="mc.username">
     </div>
     <div class="input-group input-group-md ">
       <span class="input-group-addon " id="sizing-addon2 ">Message:</span>
-      <input type="text " class="form-control " placeholder="Type your message here " aria-describedby="sizing-addon2 " ng-model="mc.messageIn ">
+      <input type="text " class="form-control " placeholder="Type your message here " aria-describedby="sizing-addon2 " ng-model="mc.message">
       <button ng-click='mc.newMessage()'>Submit</button>
     </div>
     <!-- end submission fields -->

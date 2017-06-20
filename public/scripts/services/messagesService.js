@@ -6,7 +6,7 @@ myApp.service('messagesService', function($http) {
     console.log('in addMessage', newMessage);
     $http({
       method: 'POST',
-      url: '/messages',
+      url: '/messages/post',
       data: newMessage
     });
   }; //end add messages
@@ -16,10 +16,10 @@ myApp.service('messagesService', function($http) {
     console.log('in service getMessages');
     return $http({
       method: 'GET',
-      url: '/messages'
+      url: '/messages/get'
     }).then(function(response) {
       console.log('in service, back from server with:', response);
-      sv.allMessages = response;
+      return response.data;
     });
   };
 });

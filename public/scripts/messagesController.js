@@ -8,17 +8,18 @@ myApp.controller('messagesController', function($http, messagesService) {
   vm.newMessage = function() {
     console.log('in newMessage');
     var messageToAdd = {
-      username: vm.usernameIn,
-      message: vm.messageIn
+      username: vm.username,
+      message: vm.message
     }; //end peepToAdd
     messagesService.addMessage(messageToAdd);
   };
   //post info
 
-  vm.messagesController = function() {
+  vm.goGetMyMessages = function() {
     console.log('in messagesInfo');
-    messagesService.getMessage().then(function() {
-      vm.messages = messagesService.allMessages.data;
+    messagesService.getMessages().then(function(data) {
+      vm.messages = data;
+      console.log(vm.messages);
     });
   }; //end post info
 }); //end controller

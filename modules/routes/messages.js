@@ -17,27 +17,25 @@ router.use(bodyParser.urlencoded({
 }));
 router.use(bodyParser.json());
 
-router.get('/', function(req, res) {
+router.get('/get', function(req, res) {
   console.log('/messages get call');
   messages.find().then(function(results) {
     res.send(results);
   }); // end find
 }); // end /listings get
 
-router.post('/messages', function(req, res) {
+router.post('/post', function(req, res) {
   console.log('req.body.name: ' + req.body.username);
   // retrieved the req.body
   // putting it into an object to be saved in the db
   var messageToAdd = {
     username: req.body.username,
-    location: req.body.location
+    message: req.body.message
   };
   // create new record
 
   var newMessage = messages(messageToAdd);
-  newMessage.save(function(err) {
-    res.status(200).json(messageToAdd);
-  });
+  newMessage.save();
 });
 
 module.exports = router;
